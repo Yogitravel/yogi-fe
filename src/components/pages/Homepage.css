@@ -1,0 +1,24 @@
+.tagline {
+	color: rgb(105, 109, 109);
+	font-size: 50px;
+}
+.list {
+	color: rgb(105, 109, 109);
+	font-size: 25px;
+}
+
+.page1 {
+	background: url("/pic2.gif");
+	background-size: cover;
+	height: 100vh;
+	width: 100%;
+}
+.hometitle {
+	padding-top: 80px;
+}
+.quote {
+	color: #1dbcc2;
+}
+.jumbotron {
+	background-color: blueviolet;
+}

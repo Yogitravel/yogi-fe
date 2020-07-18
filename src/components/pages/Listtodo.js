@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function not(a, b) {
+	console.log("a", a, "b", b);
 	return a.filter((value) => b.indexOf(value) === -1);
 }
 
@@ -92,6 +93,7 @@ export default function TransferList() {
 
 	const customList = (title, items) => (
 		<Card>
+			{console.log("tt", title, "ii", items)}
 			<CardHeader
 				className={classes.cardHeader}
 				avatar={
@@ -117,8 +119,9 @@ export default function TransferList() {
 							<ListItemIcon>
 								<Checkbox checked={checked.indexOf(value) !== -1} tabIndex={-1} disableRipple inputProps={{ "aria-labelledby": labelId }} />
 							</ListItemIcon>
-							<ListItemText id={labelId} primary={`${tasks[value]}`} />
+							{/* <ListItemText id={labelId} primary={`${tasks[value]}`} /> */}
 							{value.name}
+							{value.url}
 						</ListItem>
 					);
 				})}
@@ -130,15 +133,13 @@ export default function TransferList() {
 
 	useEffect(() => {
 		async function fetchData() {
-			const data = await fetch(`http://localhost:3001/programdetail/5f0ebbcf47c2fb5b25d7bf08`);
+			const data = await fetch(`http://localhost:3001/programdetail/5f101c04f2e449ce30fe9c64
+			`);
 			const response = await data.json();
 			console.log(response);
 			setTasks(response.videoURLList);
 			setLeft(response.videoURLList);
 			console.log(response.videoURLList);
-			//for (let i = 0; i < tasks.length; i++) {
-			//	setLeft([...left, i]);
-			//}
 		}
 		fetchData();
 	}, []);

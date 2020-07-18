@@ -4,15 +4,16 @@ import Axios from "axios";
 import Header from "./components/layout/Header";
 import Home from "./components/pages/Home";
 import ProgramsList from "./components/pages/ProgramsList";
-import Program from "./components/pages/ProgramTest";
+import Program from "./components/pages/ProgramDetail";
 import Listtodo from "./components/pages/Listtodo";
 import Login from "./components/auth/Login";
+import MyToDoList from "./components/auth/MyToDoList";
 import Register from "./components/auth/Register";
 import UserContext from "./context/UserContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-
 import history from "./history";
+import ProgramDetail from "./components/pages/ProgramDetail";
 
 export default function App() {
 	const [userData, setUserData] = useState({
@@ -53,8 +54,9 @@ export default function App() {
 							<div className="container">
 								<Route path="/login" component={Login} />
 								<Route path="/register" component={Register} />
+								<Route path="/programs/:id" component={ProgramDetail} />
 								<Route path="/programs" component={ProgramsList} />
-								<Route path="/programs/:id" component={Program} />
+								<Route path="/mytodolist" component={MyToDoList} />
 								<Route path="/listtodo" component={Listtodo} />
 							</div>
 						</Switch>

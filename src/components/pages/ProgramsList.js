@@ -3,6 +3,11 @@ import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { Container } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import ProgramDetail from "./ProgramDetail";
+import { useHistory } from "react-router-dom";
+import css from "./Homepage.css";
 
 const ProgramsList = () => {
 	const [programs, setPrograms] = useState([]);
@@ -10,6 +15,7 @@ const ProgramsList = () => {
 		async function fetchData() {
 			const data = await fetch("http://localhost:3001/programs");
 			const reponse = await data.json();
+			console.log(reponse);
 			setPrograms(reponse.data);
 		}
 		fetchData();
@@ -26,33 +32,48 @@ const ProgramsList = () => {
 					</Container>
 				</Jumbotron>
 			</div>
-			<h1> Programs List </h1>
-			{programs.map((e) => (
-				<CardDeck>
-					<Program {...e} />
-				</CardDeck>
-			))}
+			<h1> Check out all the Programs List </h1>
+			<CardDeck>
+				<Container>
+					<Row>
+						{programs.map((e) => (
+							<Col xs={12} md={4}>
+								<Program {...e} />
+							</Col>
+						))}
+					</Row>
+				</Container>
+			</CardDeck>
 		</div>
 	);
 };
 
-const Program = ({ title, pictureURL, level, duration, description }) => {
+// function DetailPageButton() {
+// 	let history = useHistory();
+
+// function MovetoDetailPage() {
+// 	  history.push("/programs/${id}");
+// 	}
+
+const Program = ({ title, pictureURL, level, description, _id }) => {
 	return (
 		<>
-			<div>
-				<Card>
-					<Card.Img variant="top" src={pictureURL} />
-					<Card.Body>
-						<Card.Title>{title}</Card.Title>
-						<Card.Text>{level}</Card.Text>
-						<Card.Text>{duration}</Card.Text>
-						<Card.Text>{description}</Card.Text>
-					</Card.Body>
-					<Card.Footer>
-						<small className="text-muted">Last updated 3 mins ago</small>
-					</Card.Footer>
-				</Card>
-			</div>
+			<Card class="card">
+				<Card.Img variant="top" src={pictureURL} />
+				<Card.Body>
+					<Card.Title>{title}</Card.Title>
+					<Card.Text>{level}</Card.Text>
+					<Card.Text>{description}</Card.Text>
+				</Card.Body>
+				<Card.Footer>
+					<button type="button">
+						Go to Program Detail
+						<small className="text-muted">{_id} day la ID cua Program nay START YOUR NEW LIFE STYLE NOW! </small>
+					</button>
+				</Card.Footer>
+			</Card>
+
+			<br />
 		</>
 	);
 };

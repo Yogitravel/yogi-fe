@@ -13,6 +13,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 import css from "./Homepage.css";
+import { red } from "@material-ui/core/colors";
+import TodoApp from "./TodoApp";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -22,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 		padding: theme.spacing(1, 2),
 	},
 	list: {
-		width: 200,
-		height: 230,
+		width: 400,
+		height: 430,
 		backgroundColor: theme.palette.background.paper,
 		overflow: "auto",
 	},
@@ -119,7 +121,9 @@ export default function TransferList() {
 							<ListItemIcon>
 								<Checkbox checked={checked.indexOf(value) !== -1} tabIndex={-1} disableRipple inputProps={{ "aria-labelledby": labelId }} />
 							</ListItemIcon>
-							{/* <ListItemText id={labelId} primary={`${tasks[value]}`} /> */}
+							{/* <ListItemText id={labelId} primary={`${tasks[value]}`} />
+
+							lay ten va URL video */}
 							{value.name}
 							{value.url}
 						</ListItem>
@@ -131,6 +135,7 @@ export default function TransferList() {
 	);
 	console.log(right, "hehe");
 
+	//lay data tu  program detail
 	useEffect(() => {
 		async function fetchData() {
 			const data = await fetch(`http://localhost:3001/programdetail/5f101c04f2e449ce30fe9c64
@@ -158,11 +163,13 @@ export default function TransferList() {
 						</Button>
 					</Grid>
 				</Grid>
+
 				<Grid item>
-					{customList("User Name Todo list", right)}
-					<br />
+					<TodoApp />
+					{customList("Manage your weekly Schedule", right)}
 				</Grid>
 			</Grid>
+
 			<div>
 				<ListGroup variant="flush">
 					<ListGroup.Item>HOW TO USE?</ListGroup.Item>

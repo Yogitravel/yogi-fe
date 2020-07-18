@@ -14,6 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import history from "./history";
 import ProgramDetail from "./components/pages/ProgramDetail";
+import TodoApp from "./components/pages/TodoApp";
 
 export default function App() {
 	const [userData, setUserData] = useState({
@@ -56,7 +57,8 @@ export default function App() {
 								<Route path="/register" component={Register} />
 								<Route path="/programs/:id" component={ProgramDetail} />
 								<Route path="/programs" component={ProgramsList} />
-								<Route path="/mytodolist" component={MyToDoList} />
+								<Route path="/todoapp" component={TodoApp} />
+
 								<Route path="/listtodo" component={Listtodo} />
 							</div>
 						</Switch>

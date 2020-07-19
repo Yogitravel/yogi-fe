@@ -15,6 +15,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import css from "./Homepage.css";
 import { red } from "@material-ui/core/colors";
 import TodoApp from "./TodoApp";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import { Container } from "react-bootstrap";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -151,8 +153,46 @@ export default function TransferList() {
 
 	return (
 		<div class="todopage">
+			<div>
+				<section>
+					<h1 class="thuong-title1 d-none d-sm-block"> "You are what you do, not what you say you'll do"</h1>
+
+					<ul class="thuong-list row">
+						<li class="thuong-number-text col-12 col-md-4">
+							<div class="thuong-number"> 1</div>
+							<div> Select your yoga tasks for the week</div>
+						</li>
+
+						<li class="thuong-number-text col-12 col-md-4">
+							<div class="thuong-number"> 2</div>
+							<div> Move each task into your weekly schedule </div>
+						</li>
+						<li class="thuong-number-text col-12 col-md-4">
+							<div class="thuong-number"> 3</div>
+							<div> Click ADD to add new todo tasks</div>
+						</li>
+						<li class="thuong-number-text col-12 col-md-4">
+							<div class="thuong-number"> 4</div>
+							<div> Drag up and down to adjust the priority</div>
+						</li>
+						<li class="thuong-number-text col-12 col-md-4">
+							<div class="thuong-number"> 5</div>
+							<div> Click on the trash icon to delete your tasks</div>
+						</li>
+						<li class="thuong-number-text col-12 col-md-4">
+							<div class="thuong-number"> 6</div>
+							<div> Move the task back to Thuong side if you cant make it </div>
+						</li>
+					</ul>
+				</section>
+			</div>
 			<Grid container spacing={2} justify="center" alignItems="center" className={classes.root}>
-				<Grid item>{customList("Your tasks of the week", left)}</Grid>
+				<Grid item>
+					<h2 class="titletask1"> Your Yoga task this week</h2>
+					<br />
+					<br />
+					{customList("Click to select the tasks", left)}
+				</Grid>
 				<Grid item>
 					<Grid container direction="column" alignItems="center">
 						<Button variant="outlined" size="small" className={classes.button} onClick={handleCheckedRight} disabled={leftChecked.length === 0} aria-label="move selected right">
@@ -165,20 +205,12 @@ export default function TransferList() {
 				</Grid>
 
 				<Grid item>
+					<h2 class="titletask2"> Manage your weekly schedule </h2>
+					<br />
 					<TodoApp />
-					{customList("Manage your weekly Schedule", right)}
+					{customList("Thuong's task", right)}
 				</Grid>
 			</Grid>
-
-			<div>
-				<ListGroup variant="flush">
-					<ListGroup.Item>HOW TO USE?</ListGroup.Item>
-					<ListGroup.Item>1. Select your task of the week</ListGroup.Item>
-					<ListGroup.Item>2. Move your task to your Todo'list</ListGroup.Item>
-					<ListGroup.Item>3. Drag up and down to manage your weekly activities</ListGroup.Item>
-					<ListGroup.Item>4. Click on the "+" to add new todo task</ListGroup.Item>
-				</ListGroup>
-			</div>
 		</div>
 	);
 }

@@ -25,17 +25,7 @@ const ProgramDetail = () => {
 	}
 	return (
 		<div>
-			<br />
-			{/* <div>
-				<Jumbotron fluid class="jumbotron">
-					<Container>
-						<h1 class="quote">" You are what you do, not what you say you'll do "</h1>
-						<p>Thuong App help you build your healthy life style easier by blending small workout tasks into your every day schedule.</p>
-						<p> Selec a program below to start your new journey</p>
-					</Container>
-				</Jumbotron>
-			</div> */}
-			<h1> Check out all the Programs List </h1>
+			<h1> Day la trang Program detail (programs/id) </h1>
 			<CardDeck>
 				<Container>
 					<Card>
@@ -63,24 +53,4 @@ const ProgramDetail = () => {
 		</div>
 	);
 };
-
-// const ProgramDetails = ({ title, description, videoURLList }) => {
-// 	return (
-// 		<>
-// 			<Card>
-// 				<Card.Body>
-// 					<Card.Title>{title}</Card.Title>
-// 					<Card.Text>{description}</Card.Text>
-// 					<Card.Text>{videoURLList}</Card.Text>
-// 				</Card.Body>
-// 				<Card.Footer>
-// 					<small className="text-muted">START YOUR NEW LIFE STYLE NOW! </small>
-// 				</Card.Footer>
-// 			</Card>
-
-// 			<br />
-// 		</>
-// 	);
-// };
-
 export default ProgramDetail;

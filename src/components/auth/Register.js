@@ -18,18 +18,15 @@ export default function Register() {
 		e.preventDefault();
 		try {
 			const newUser = { email, password, passwordCheck, displayName };
-			await Axios.post("http://localhost:5000/users/register", newUser);
-			const loginRes = await Axios.post("http://localhost:5000/users/login", {
-				email,
-				password,
-			});
+			const response = await Axios.post("http://localhost:3001/users/register", newUser);
 			setUserData({
-				token: loginRes.data.token,
-				user: loginRes.data.user,
+				token: response.data.token,
+				user: response.data.user,
 			});
-			localStorage.setItem("auth-token", loginRes.data.token);
+			localStorage.setItem("auth-token", response.data.token);
 			history.push("/");
 		} catch (err) {
+			console.log(err.response);
 			err.response.data.msg && setError(err.response.data.msg);
 		}
 	};

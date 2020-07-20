@@ -7,7 +7,6 @@ import ProgramsList from "./components/pages/ProgramsList";
 import Program from "./components/pages/ProgramDetail";
 import Listtodo from "./components/pages/Listtodo";
 import Login from "./components/auth/Login";
-import MyToDoList from "./components/auth/MyToDoList";
 import Register from "./components/auth/Register";
 import UserContext from "./context/UserContext";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,14 +25,14 @@ export default function App() {
 		const checkLoggedIn = async () => {
 			let token = localStorage.getItem("auth-token");
 			if (token === null) {
-				localStorage.setItem("auth-token", "");
-				token = "";
+				return;
 			}
-			const tokenRes = await Axios.post("http://localhost:5000/users/tokenIsValid", null, { headers: { "x-auth-token": token } });
+			const tokenRes = await Axios.post("http://localhost:3001/users/tokenIsValid", null, { headers: { "x-auth-token": token } });
 			if (tokenRes.data) {
-				const userRes = await Axios.get("http://localhost:5000/users/", {
+				const userRes = await Axios.get("http://localhost:3001/users/", {
 					headers: { "x-auth-token": token },
 				});
+				console.log(userRes.data);
 				setUserData({
 					token,
 					user: userRes.data,
@@ -55,10 +54,9 @@ export default function App() {
 							<div className="container">
 								<Route path="/login" component={Login} />
 								<Route path="/register" component={Register} />
-								<Route path="/programs/:id" component={ProgramDetail} />
-								<Route path="/programs" component={ProgramsList} />
+								<Route exact path="/programs/:id" component={ProgramDetail} />
+								<Route exact path="/programs" component={ProgramsList} />
 								<Route path="/todoapp" component={TodoApp} />
-
 								<Route path="/listtodo" component={Listtodo} />
 							</div>
 						</Switch>

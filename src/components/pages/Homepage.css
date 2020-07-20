@@ -189,3 +189,32 @@ section {
 	font-size: 15px;
 	line-height: 1.5;
 }
+
+.card_title1 {
+	color: rgb(105, 109, 109);
+	font-size: 40px;
+	font-family: buenosaires-bold;
+	text-align: left;
+}
+.card_text1 {
+	font-family: buenosaires-bold;
+	color: rgb(105, 109, 109);
+	text-align: left;
+	-webkit-box-flex: 1;
+	font-size: 20px;
+	line-height: 1.5;
+}
+.button-linkprograms {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+}
+.tagline1 {
+	padding-top: 40px;
+	color: rgb(108, 109, 105);
+	text-align: center;
+	font-size: 40px;
+	font-family: buenosaires-bold;
+}

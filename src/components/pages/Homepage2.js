@@ -38,14 +38,13 @@ export default function Homepage2() {
 										Thuong App helps you to build a balanced lifestyle easily by blending healthy habits into your every day schedule. Set reminders, get workout updates and plan the little things
 										that make life richer all in one place
 									</h2>
+									<Link class="button-linkprograms" to="/programs">
+										<Button class="buttontoprogram" variant="info">
+											SEE All PROGRAMS
+										</Button>
+									</Link>
 									<br />
 								</div>
-
-								<Link to="/programs">
-									<Button class="buttontoprogram" variant="info">
-										SEE All PROGRAMS
-									</Button>
-								</Link>
 							</Col>
 						</Row>
 					</Container>

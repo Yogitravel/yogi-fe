@@ -9,7 +9,7 @@
 }
 
 a {
-	color: #2199df;
+	color: #08869c;
 	text-decoration: unset;
 }
 
@@ -22,7 +22,7 @@ button,
 input[type="submit"] {
 	border: none;
 	background: none;
-	color: unset;
+	color: #fcfcfc;
 	cursor: pointer;
 }
 
@@ -58,7 +58,7 @@ body {
 /* header */
 
 #header {
-	height: 50px;
+	height: 60px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -79,7 +79,7 @@ body {
 	font-size: 1.1rem;
 }
 #header .auth-options button:hover {
-	background-color: #0c998d;
+	background-color: #169b90;
 }
 
 /* form */
@@ -105,7 +105,7 @@ body {
 	font-size: 1.1rem;
 }
 .form input:focus {
-	border: 1px solid #50a4e9;
+	/* border: 1px solid #50a4e9; */
 	box-shadow: inset 0px 0px 5px rgba(24, 187, 160, 0.5);
 	outline: none;
 }
@@ -113,7 +113,7 @@ body {
 	padding: 0.3rem 0.5rem;
 	border: 1px solid #45c0c0;
 	border-radius: 8px;
-	background-color: #c8ecb7;
+	background-color: #18aaaf;
 	font-size: 1.1rem;
 }
 

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import Axios from "axios";
 import ErrorNotice from "../misc/ErrorNotice";
+import css from "../pages/Homepage.css";
 
 export default function Register() {
 	const [email, setEmail] = useState();
@@ -13,7 +14,6 @@ export default function Register() {
 
 	const { setUserData } = useContext(UserContext);
 	const history = useHistory();
-
 	const submit = async (e) => {
 		e.preventDefault();
 		try {
@@ -32,7 +32,7 @@ export default function Register() {
 	};
 
 	return (
-		<div className="page">
+		<div className="pageregister">
 			<h2>Register</h2>
 			{error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
 			<form className="form" onSubmit={submit}>

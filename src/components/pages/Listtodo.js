@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: theme.spacing(1, 2),
 	},
 	list: {
-		width: 400,
+		width: 250,
 		height: 430,
 		backgroundColor: theme.palette.background.paper,
 		overflow: "auto",
@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function not(a, b) {
-	console.log("a", a, "b", b);
 	return a.filter((value) => b.indexOf(value) === -1);
 }
 
@@ -56,7 +55,7 @@ export default function TransferList() {
 	const [left, setLeft] = React.useState([]);
 	const [right, setRight] = React.useState([]);
 	const id = useParams().id;
-	console.log(id);
+	console.log(id, "day la id cua todolist");
 	const leftChecked = intersection(checked, left);
 	const rightChecked = intersection(checked, right);
 
@@ -95,61 +94,24 @@ export default function TransferList() {
 		setChecked(not(checked, rightChecked));
 	};
 
-	const customList = (title, items) => (
-		<Card>
-			{console.log("tt", title, "ii", items)}
-			<CardHeader
-				className={classes.cardHeader}
-				avatar={
-					<Checkbox
-						onClick={handleToggleAll(items)}
-						checked={numberOfChecked(items) === items.length && items.length !== 0}
-						indeterminate={numberOfChecked(items) !== items.length && numberOfChecked(items) !== 0}
-						disabled={items.length === 0}
-						inputProps={{ "aria-label": "all items selected" }}
-					/>
-				}
-				title={title}
-				subheader={`${numberOfChecked(items)}/${items.length} selected`}
-			/>
-			<Divider />
-			<List className={classes.list} dense component="div" role="list">
-				{items.map((value) => {
-					console.log(value);
-					const labelId = `transfer-list-all-item-${value}-label`;
+	// const [programdetail, setProgramDetail] = useState([]);
+	// useEffect(() => {
+	// 	async function fetchData() {
+	// 		try {
+	// 			const data = await fetch(`http://localhost:3001/programs/${id}`);
+	// 			const response = await data.json();
+	// 			console.log(response, "day la DATA gui qua todo");
+	// 			setProgramDetail(response);
+	// 		} catch (err) {
+	// 			console.log(err);
+	// 		}
+	// 	}
+	// 	fetchData();
+	// }, []);
 
-					return (
-						<ListItem key={value} role="listitem" button onClick={handleToggle(value)}>
-							<ListItemIcon>
-								<Checkbox checked={checked.indexOf(value) !== -1} tabIndex={-1} disableRipple inputProps={{ "aria-labelledby": labelId }} />
-							</ListItemIcon>
-							{/* <ListItemText id={labelId} primary={`${tasks[value]}`} />
-
-							lay ten va URL video */}
-							{value.name} <span> - </span>
-							<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z" />
-								<path
-									fill-rule="evenodd"
-									d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"
-								/>
-							</svg>
-							{/* {value.url} */}
-						</ListItem>
-					);
-				})}
-				<ListItem />
-			</List>
-		</Card>
-	);
-	console.log(right, "hehe");
-
-	//lay data tu  program detail
 	useEffect(() => {
 		async function fetchData() {
-			const data = await fetch(`http://localhost:3001/programs/5f0ebbcf47c2fb5b25d7bf08
-
-			`);
+			const data = await fetch(`http://localhost:3001/programs/${id}`);
 			const response = await data.json();
 			console.log(response);
 			setTasks(response.videoURLList);
@@ -158,6 +120,39 @@ export default function TransferList() {
 		}
 		fetchData();
 	}, []);
+
+	const customList = (title, items) => (
+		<Card>
+			{console.log("tt", title, "ii", items)}
+
+			<Divider />
+			<List className={classes.list} dense component="div" role="list">
+				{items.map((value) => {
+					const labelId = `transfer-list-all-item-${value}-label`;
+
+					return (
+						<ListItem key={value} role="listitem" button onClick={handleToggle(value)}>
+							<ListItemIcon>
+								<Checkbox checked={checked.indexOf(value) !== -1} tabIndex={-1} disableRipple inputProps={{ "aria-labelledby": labelId }} />
+							</ListItemIcon>
+							{value.name}
+
+							{/* {programdetail.videoURLList.map((x) => x.name)} */}
+
+							<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z" />
+								<path
+									fill-rule="evenodd"
+									d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"
+								/>
+							</svg>
+						</ListItem>
+					);
+				})}
+				<ListItem />
+			</List>
+		</Card>
+	);
 
 	return (
 		<div class="todopage">

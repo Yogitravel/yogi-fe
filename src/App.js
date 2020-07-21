@@ -13,9 +13,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import history from "./history";
 import ProgramDetail from "./components/pages/ProgramDetail";
-import TodoApp from "./components/pages/TodoApp";
+import AdminPage from "./components/pages/AdminPage";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 export default function App() {
+	const [loading, setLoading] = useState(true);
 	const [userData, setUserData] = useState({
 		token: undefined,
 		user: undefined,
@@ -38,11 +40,14 @@ export default function App() {
 					user: userRes.data,
 				});
 			}
+			setLoading(false);
 		};
 
 		checkLoggedIn();
 	}, []);
+	console.log(userData);
 
+	if (loading) return <h1>loading spinner</h1>;
 	return (
 		<>
 			<BrowserRouter history={history}>
@@ -51,14 +56,12 @@ export default function App() {
 					<div>
 						<Switch>
 							<Route exact path="/" component={Home} />
-							<div className="container">
-								<Route path="/login" component={Login} />
-								<Route path="/register" component={Register} />
-								<Route exact path="/programs/:id" component={ProgramDetail} />
-								<Route exact path="/programs" component={ProgramsList} />
-								<Route path="/todoapp" component={TodoApp} />
-								<Route path="/listtodo" component={Listtodo} />
-							</div>
+							<Route path="/login" component={Login} />
+							<Route path="/register" component={Register} />
+							<Route exact path="/programs" component={ProgramsList} />
+							<ProtectedRoute user={userData} exact path="/programs/:id" component={ProgramDetail} />
+							<ProtectedRoute user={userData} path="/programs/:id/todo" component={Listtodo} />
+							<ProtectedRoute user={userData} path="/admin" component={AdminPage} />
 						</Switch>
 					</div>
 				</UserContext.Provider>

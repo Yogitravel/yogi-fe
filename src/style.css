@@ -75,11 +75,7 @@ body {
 }
 #header .auth-options button {
 	padding: 0 1rem;
-	color: #ffffff;
 	font-size: 1.1rem;
-}
-#header .auth-options button:hover {
-	background-color: #169b90;
 }
 
 /* form */

@@ -22,7 +22,6 @@ const ProgramsList = () => {
 		}
 		fetchData();
 	}, []);
-
 	return (
 		<div>
 			<h1 class="thuong-title2 d-none d-sm-block"> Selec a program below to start your new healthy journey</h1>
@@ -65,6 +64,7 @@ const Program = ({ title, pictureURL, level, description, _id }) => {
 					</Card.Text>
 					<Card.Text class="card_text">{description}</Card.Text>
 				</Card.Body>
+
 				<Link class="button-linkprograms" to={`/programs/${_id}`}>
 					<Button variant="info">VIEW MORE</Button>
 				</Link>

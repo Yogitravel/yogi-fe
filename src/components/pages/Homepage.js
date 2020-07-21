@@ -25,9 +25,9 @@ export default function Homepage() {
 								<li> Whole-body health </li>{" "}
 							</div>
 
-							<Link class="button1" to="/register">
+							{/* <Link class="button1" to="/register">
 								<Button variant="info">TRY FOR FREE</Button>
-							</Link>
+							</Link> */}
 						</Col>
 					</Row>
 				</Container>

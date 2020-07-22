@@ -13,13 +13,16 @@
 		"mdbootstrap": "^4.19.1",
 		"mdbreact": "^4.27.0",
 		"mongoose": "^5.9.24",
+		"node-sass": "^4.14.1",
 		"react": "^16.13.1",
 		"react-bootstrap": "^1.2.2",
 		"react-dom": "^16.13.1",
+		"react-modal-video": "^1.2.5",
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.4.1",
 		"react-uuid": "^1.0.2",
 		"react-youtube": "^7.11.2",
+		"reactjs-popup": "^1.5.0",
 		"uuid": "^8.2.0"
 	},
 	"scripts": {

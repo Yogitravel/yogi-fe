@@ -154,8 +154,8 @@ section {
 .card {
 	border-radius: 0.25rem;
 	box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-	display: -webkit-box;
-	display: flex;
+	/* display: -webkit-box;
+	display: flex; */
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	flex-direction: column;
@@ -258,4 +258,13 @@ section {
 	padding-bottom: 6px;
 	padding-right: 8px;
 	padding-top: 6px;
+}
+@media screen and (max-width: 550px) {
+	#header .title {
+		font-size: 1.2rem;
+	}
+	#header .auth-options button {
+		padding: 0 0.5rem;
+		font-size: 0.9rem;
+	}
 }

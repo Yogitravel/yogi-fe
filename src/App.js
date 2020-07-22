@@ -13,8 +13,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import history from "./history";
 import ProgramDetail from "./components/pages/ProgramDetail";
-import AdminPage from "./components/pages/AdminPage";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import "../node_modules/react-modal-video/scss/modal-video.scss";
 
 export default function App() {
 	const [loading, setLoading] = useState(true);
@@ -61,7 +61,6 @@ export default function App() {
 							<Route exact path="/programs" component={ProgramsList} />
 							<ProtectedRoute user={userData} exact path="/programs/:id" component={ProgramDetail} />
 							<ProtectedRoute user={userData} path="/programs/:id/todo" component={Listtodo} />
-							<ProtectedRoute user={userData} path="/admin" component={AdminPage} />
 						</Switch>
 					</div>
 				</UserContext.Provider>

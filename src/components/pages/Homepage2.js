@@ -17,7 +17,7 @@ export default function Homepage2() {
 						<ul class="thuong-list row">
 							<li class="thuong-number-text col-12 col-md-4">
 								<div class="thuong-number"> 1</div>
-								<div> Sign up to be member of Thuong App community, enjoy your 1 week trial</div>
+								<div> Sign up to be a member of Thuong App community, enjoy 6 free programs</div>
 							</li>
 
 							<li class="thuong-number-text col-12 col-md-4">

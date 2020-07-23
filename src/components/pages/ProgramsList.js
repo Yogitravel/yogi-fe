@@ -30,7 +30,7 @@ const ProgramsList = () => {
 				<Container>
 					<Row>
 						{programs.map((e) => (
-							<Col xs={12} md={4}>
+							<Col class="mx-0" xs={12} md={4}>
 								<Program {...e} />
 							</Col>
 						))}

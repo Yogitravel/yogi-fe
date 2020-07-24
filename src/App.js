@@ -27,6 +27,7 @@ export default function App() {
 		const checkLoggedIn = async () => {
 			let token = localStorage.getItem("auth-token");
 			if (token === null) {
+				setLoading(false);
 				return;
 			}
 			const tokenRes = await Axios.post(process.env.REACT_APP_SERVER + "/users/tokenIsValid", null, { headers: { "x-auth-token": token } });

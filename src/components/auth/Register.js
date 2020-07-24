@@ -18,7 +18,7 @@ export default function Register() {
 		e.preventDefault();
 		try {
 			const newUser = { email, password, passwordCheck, displayName };
-			const response = await Axios.post("http://localhost:3001/users/register", newUser);
+			const response = await Axios.post(process.env.REACT_APP_SERVER + "/users/register", newUser);
 			setUserData({
 				token: response.data.token,
 				user: response.data.user,

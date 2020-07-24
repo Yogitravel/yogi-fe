@@ -15,7 +15,7 @@ const ProgramDetail = () => {
 	const [programdetail, setProgramDetail] = useState([]);
 	useEffect(() => {
 		async function fetchData() {
-			const data = await fetch(`http://localhost:3001/programs/${id}`);
+			const data = await fetch(`${process.env.REACT_APP_SERVER}/programs/${id}`);
 			const response = await data.json();
 			console.log(response);
 			setProgramDetail(response);

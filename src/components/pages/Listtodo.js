@@ -70,7 +70,7 @@ export default function TransferList() {
 
 	async function fetchTodos() {
 		try {
-			const res = await fetch(`http://localhost:3001/todos`, {
+			const res = await fetch(process.env.REACT_APP_SERVER + `/todos`, {
 				headers: {
 					"x-auth-token": `${localStorage.getItem("auth-token")}`,
 				},
@@ -86,7 +86,7 @@ export default function TransferList() {
 	}
 
 	async function fetchLeft() {
-		const data = await fetch(`http://localhost:3001/programs/${id}`);
+		const data = await fetch(`${process.env.REACT_APP_SERVER}/programs/${id}`);
 		const response = await data.json();
 		return response.videoURLList;
 	}
@@ -96,7 +96,7 @@ export default function TransferList() {
 		const body = right.map((e) => (e.url ? { url: e.url, name: e.name } : { url: e.url, name: e.name }));
 
 		try {
-			const res = await fetch(`http://localhost:3001/todos`, {
+			const res = await fetch(process.env.REACT_APP_SERVER + `/todos`, {
 				headers: {
 					"x-auth-token": `${localStorage.getItem("auth-token")}`,
 					"content-type": "application/json",

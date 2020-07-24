@@ -15,7 +15,7 @@ const ProgramsList = () => {
 	const [programs, setPrograms] = useState([]);
 	useEffect(() => {
 		async function fetchData() {
-			const data = await fetch("http://localhost:3001/programs");
+			const data = await fetch(process.env.REACT_APP_SERVER + "/programs");
 			const reponse = await data.json();
 			console.log(reponse);
 			setPrograms(reponse.data);
